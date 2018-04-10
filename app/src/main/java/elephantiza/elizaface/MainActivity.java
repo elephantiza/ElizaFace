@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         InputStream stream = getResources().openRawResource( R.raw.face );
         Bitmap bitmap = BitmapFactory.decodeStream(stream);
         faceView.setBitmap(bitmap);
-        
+
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,23 +83,8 @@ public class MainActivity extends AppCompatActivity {
         download.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Bitmap bitmap = faceView.getDrawingCache();
-//                String path = Environment.getExternalStorageDirectory().getAbsolutePath();
-//                File file = new File(path+"/ElizaFace/"+(new Date()).toString()+".png");
-//                FileOutputStream ostream;
-//                try {
-//                    file.createNewFile();
-//                    ostream = new FileOutputStream(file);
-//                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, ostream);
-//                    ostream.flush();
-//                    ostream.close();
-//                    Toast.makeText(getApplicationContext(), "Image saved", Toast.LENGTH_SHORT).show();
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                    Toast.makeText(getApplicationContext(), "Image failed to save. Try again.", Toast.LENGTH_LONG).show();
-//                }
-//            }
-            saveImage();}
+                saveImage();
+            }
         });
     }
 
@@ -188,7 +173,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void saveImage() {
         int ctime = Calendar.getInstance().get(Calendar.MILLISECOND);
-        faceView.setDrawingCacheEnabled(true);
+        faceView.destroyDrawingCache();
+        faceView.buildDrawingCache();
         Bitmap bitmap = faceView.getDrawingCache();
 
         File file = new File(android.os.Environment.getExternalStorageDirectory(),"ElizaFace");
