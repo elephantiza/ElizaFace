@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "290767807251",
+    "firebase_url": "https://elephantiza-elizaface.firebaseio.com",
+    "project_id": "elephantiza-elizaface",
+    "storage_bucket": "elephantiza-elizaface.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:290767807251:android:007a92bdbf07e5fb",
+        "android_client_info": {
+          "package_name": "elephantiza.elizaface"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "290767807251-gtqtmamu77pq1plv5c3v0c337d5cosc5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5D6NlDwInJfZSehOtHIKkAIM4wCTNF1k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
