@@ -5,7 +5,6 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -34,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int TAKE_PICTURE = 0;
     private static final int PICK_PHOTO = 1;
-    private static final int REQUEST_WRITE_PERMISSION = 786;
+    private static final int REQUEST_READ_PERMISSION = 786;
+    private static final int REQUEST_WRITE_PERMISSION = 787;
     private FaceOverlayView faceView;
     private FloatingActionButton camera;
     private FloatingActionButton gallery;
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         //Remove title bar
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        requestPermission();
+        requestReadPermission();
 
         setContentView(R.layout.activity_main);
         camera = findViewById(R.id.camera);
@@ -101,7 +101,13 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
-    private void requestPermission() {
+    private void requestReadPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            requestPermissions(new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_READ_PERMISSION);
+        }
+    }
+
+    private void requestWritePermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             requestPermissions(new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_PERMISSION);
         }

@@ -18,11 +18,14 @@ import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.FaceDetector;
 import com.google.android.gms.vision.face.Landmark;
 
+import java.io.InputStream;
+
 public class FaceOverlayView extends View {
 
     private Bitmap mBitmap;
     private SparseArray<Face> mFaces;
-    private Bitmap elizaBmap = BitmapFactory.decodeResource(getResources(),R.drawable.eliza);
+
+    private Bitmap elizaBmap = BitmapFactory.decodeResource(getContext().getResources(),R.raw.eliza);
 
     public FaceOverlayView(Context context) {
         this(context, null);
@@ -154,11 +157,11 @@ public class FaceOverlayView extends View {
             eulerY = face.getEulerY();
             eulerZ = face.getEulerZ();
 
-            Log.e( "Tuts+ Face Detection", "Smiling: " + smilingProbability );
-            Log.e( "Tuts+ Face Detection", "Left eye open: " + leftEyeOpenProbability );
-            Log.e( "Tuts+ Face Detection", "Right eye open: " + rightEyeOpenProbability );
-            Log.e( "Tuts+ Face Detection", "Euler Y: " + eulerY );
-            Log.e( "Tuts+ Face Detection", "Euler Z: " + eulerZ );
+            Log.e( "Face Detection", "Smiling: " + smilingProbability );
+            Log.e( "Face Detection", "Left eye open: " + leftEyeOpenProbability );
+            Log.e( "Face Detection", "Right eye open: " + rightEyeOpenProbability );
+            Log.e( "Face Detection", "Euler Y: " + eulerY );
+            Log.e( "Face Detection", "Euler Z: " + eulerZ );
         }
     }
 }
